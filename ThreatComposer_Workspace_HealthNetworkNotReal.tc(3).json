@@ -1,0 +1,933 @@
+{
+  "schema": 1,
+  "applicationInfo": {
+    "name": "HealthNetwork(NotReal)",
+    "description": "HealthNetwork threat dashboard for CIT 45100"
+  },
+  "architecture": {
+    "description": ""
+  },
+  "dataflow": {
+    "description": "HNetConnect dataflow diagram for customer, doctor, and hospital.\n\n\n\nHNetPay image link:\n\nhttps://github.com/Crdenney/HealthNetworkIncThreatMapsxyz/blob/main/Stride%20HNetPay%20.png?raw=true\n\n![](https://github.com/Crdenney/HealthNetworkIncThreatMapsxyz/blob/main/HnetEXchangeDiagram.png?raw=true \"HnetExchange\")![](https://github.com/Crdenney/HealthNetworkIncThreatMapsxyz/blob/main/HNetConnectDiagram.png?raw=true \"HNetConnect\")",
+    "image": "https://github.com/Crdenney/HealthNetworkIncThreatMapsxyz/blob/main/Stride%20HNetPay%20.png?raw=true"
+  },
+  "assumptions": [],
+  "mitigations": [
+    {
+      "id": "6fa97b6e-53b3-481c-9a45-0efde30abcee",
+      "numericId": 17,
+      "status": "mitigationResolved",
+      "content": "Implement proper encoding and escaping in user inputs ",
+      "tags": [
+        "XSS Vuln mitigation"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": "d7e5bb90-26b7-4609-9747-b65dd8f66905",
+      "numericId": 16,
+      "status": "mitigationResolved",
+      "content": "Data sanitization prevents attackers from using SQL code while in the authentication plane ",
+      "displayOrder": 16,
+      "tags": [
+        "M1056",
+        "Data Sanitization"
+      ]
+    },
+    {
+      "id": "a58fd513-0424-4917-ae29-741a20aa771a",
+      "numericId": 15,
+      "status": "mitigationResolved",
+      "content": "Ensure that the principle of least privilege is introduced, so that the user does not have the ability to perform actions not needed.",
+      "tags": [
+        " M1018 ",
+        "User Account Management "
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": "62036d2b-aa04-4c51-ae20-7f5f38b1b19d",
+      "numericId": 14,
+      "status": "mitigationResolved",
+      "content": "Trusted platform module technology and secure boot used to ensure the system has not been compromised ",
+      "tags": [
+        "Boot Integrity (TPM)",
+        "M1046"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": "a9c56cd2-0e5c-473b-9774-16b1372a213c",
+      "numericId": 13,
+      "status": "mitigationInProgress",
+      "content": "Create backups that can be used to restore company data ",
+      "displayOrder": 13
+    },
+    {
+      "id": "e313afa7-7f2a-4ed1-985a-73058dfc03e9",
+      "numericId": 12,
+      "status": "mitigationResolved",
+      "content": "Create a setting where AWS cannot create backups to external cloud environments, such as Google Drive.                                                                  Configure appropriate data sharing restrictions in cloud services. For example, external sharing in Microsoft SharePoint and Google Drive can be turned off altogether, blocked for certain domains, or restricted to certain users.",
+      "displayOrder": 12
+    },
+    {
+      "id": "6b42d86a-f2f3-433e-bbc2-ba912e7623a6",
+      "numericId": 11,
+      "status": "mitigationInProgress",
+      "content": "Data loss prevention can prevent and block sensitive data from being shared with individuals outside an organization. Add rules so that sensitive data is not shared with external cloud backup environments.",
+      "displayOrder": 11,
+      "tags": [
+        "M1057",
+        "Data loss prevention"
+      ]
+    },
+    {
+      "id": "b64ac12e-5650-4995-a4ac-63791f461296",
+      "numericId": 10,
+      "status": "mitigationResolved",
+      "content": "Ensure that low-privileged user accounts do not have permission to add access keys to accounts. In AWS environments, prohibit users from calling the sts:GetFederationToken API unless explicitly required.[13]",
+      "displayOrder": 10
+    },
+    {
+      "id": "c8b654f7-5ed8-432f-a2ca-f52a5c33e2b7",
+      "numericId": 9,
+      "status": "mitigationInProgress",
+      "content": "  Monitor for changes to windows registry keys or values that may target multi-factor authentication mechanisms, such as smart cards, to gain access to credentials that can be used to access systems, services, and network resources.     DS0024 \tWindows Registry \tWindows Registry Key Modification",
+      "metadata": [],
+      "displayOrder": 9
+    },
+    {
+      "id": "1b464af9-6620-49ba-8209-9010896f3721",
+      "numericId": 8,
+      "status": "mitigationResolved",
+      "content": " \nMonitor for API calls associated with polling to intercept keystrokes.\n",
+      "displayOrder": 8
+    },
+    {
+      "id": "842887f1-b575-4c24-843b-4d12d45514e2",
+      "numericId": 7,
+      "status": "mitigationResolvedWillNotAction",
+      "content": "Require key cards to access sensitive areas such as server rooms",
+      "displayOrder": 7
+    },
+    {
+      "id": "2f40f3d1-7486-4ef6-a326-31cf9510a922",
+      "numericId": 6,
+      "status": "mitigationResolved",
+      "content": "Lifespan of cookies and session times on web application are limited ",
+      "displayOrder": 6
+    },
+    {
+      "id": "d02435e4-bdb9-4594-a6e8-e3417e03df24",
+      "numericId": 5,
+      "status": "mitigationResolved",
+      "content": "Enforce HTTPS on every web service. The website is not accessible without HTTPS.",
+      "displayOrder": 5
+    },
+    {
+      "id": "453cda46-76fe-469d-b3d0-87016ca937a7",
+      "numericId": 4,
+      "status": "mitigationInProgress",
+      "content": "Email gateway should filter out malicious emails",
+      "displayOrder": 4
+    },
+    {
+      "id": "01fc9813-20ee-4ed9-9b0a-9604bd093cd5",
+      "numericId": 2,
+      "status": "mitigationInProgress",
+      "content": "Security Awareness Training Program: All employees are provided with training regarding how to spot phishing attempts",
+      "displayOrder": 2,
+      "tags": [
+        "Security Awerness"
+      ]
+    },
+    {
+      "id": "240d86cd-4299-42ca-b628-b184d45e07e4",
+      "numericId": 1,
+      "displayOrder": 1,
+      "content": "Multi Factor Authentication",
+      "status": "mitigationResolved",
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "MFA is implemented to prevent unauthorized access, even if an attacker obtains a user's password\n\nDeployed in web portal after user provides valid credentials"
+        }
+      ],
+      "tags": [
+        "MFA"
+      ]
+    }
+  ],
+  "assumptionLinks": [],
+  "mitigationLinks": [
+    {
+      "mitigationId": "240d86cd-4299-42ca-b628-b184d45e07e4",
+      "linkedId": "6836e996-29b9-4819-8cb2-1deb5988a067"
+    },
+    {
+      "linkedId": "59f227dc-1ba0-492e-a0df-3945c96e3cf4",
+      "mitigationId": "453cda46-76fe-469d-b3d0-87016ca937a7"
+    },
+    {
+      "linkedId": "59f227dc-1ba0-492e-a0df-3945c96e3cf4",
+      "mitigationId": "01fc9813-20ee-4ed9-9b0a-9604bd093cd5"
+    },
+    {
+      "linkedId": "59f227dc-1ba0-492e-a0df-3945c96e3cf4",
+      "mitigationId": "240d86cd-4299-42ca-b628-b184d45e07e4"
+    },
+    {
+      "mitigationId": "240d86cd-4299-42ca-b628-b184d45e07e4",
+      "linkedId": "d5fc90a0-9250-4be4-92c0-2c54bbc66ff7"
+    },
+    {
+      "linkedId": "d5fc90a0-9250-4be4-92c0-2c54bbc66ff7",
+      "mitigationId": "2f40f3d1-7486-4ef6-a326-31cf9510a922"
+    },
+    {
+      "linkedId": "d5fc90a0-9250-4be4-92c0-2c54bbc66ff7",
+      "mitigationId": "d02435e4-bdb9-4594-a6e8-e3417e03df24"
+    },
+    {
+      "linkedId": "04212a0d-86c6-414d-9501-ac90f06f81fa",
+      "mitigationId": "842887f1-b575-4c24-843b-4d12d45514e2"
+    },
+    {
+      "linkedId": "886f05f9-aaef-4add-89a2-c7053302573d",
+      "mitigationId": "1b464af9-6620-49ba-8209-9010896f3721"
+    },
+    {
+      "linkedId": "886f05f9-aaef-4add-89a2-c7053302573d",
+      "mitigationId": "c8b654f7-5ed8-432f-a2ca-f52a5c33e2b7"
+    },
+    {
+      "linkedId": "decdfac9-fa2c-48c3-adb1-13947078f933",
+      "mitigationId": "b64ac12e-5650-4995-a4ac-63791f461296"
+    },
+    {
+      "linkedId": "5c74c1ed-bc79-4ad3-95a3-2a183e321de8",
+      "mitigationId": "6b42d86a-f2f3-433e-bbc2-ba912e7623a6"
+    },
+    {
+      "linkedId": "5c74c1ed-bc79-4ad3-95a3-2a183e321de8",
+      "mitigationId": "e313afa7-7f2a-4ed1-985a-73058dfc03e9"
+    },
+    {
+      "linkedId": "1b759adf-4326-4a5e-b88d-05f6e88c4b5a",
+      "mitigationId": "a9c56cd2-0e5c-473b-9774-16b1372a213c"
+    },
+    {
+      "linkedId": "0cc0d1c9-79ae-45bf-b141-6499c2e019c1",
+      "mitigationId": "a9c56cd2-0e5c-473b-9774-16b1372a213c"
+    },
+    {
+      "linkedId": "15255b06-acaa-4cf9-a32a-32f39e2ad7e9",
+      "mitigationId": "62036d2b-aa04-4c51-ae20-7f5f38b1b19d"
+    },
+    {
+      "linkedId": "5f5098a8-317a-487e-a0e6-f70ed65021e6",
+      "mitigationId": "a58fd513-0424-4917-ae29-741a20aa771a"
+    },
+    {
+      "linkedId": "45d6c333-0cd8-4a86-a38c-9520b4e8ba91",
+      "mitigationId": "240d86cd-4299-42ca-b628-b184d45e07e4"
+    },
+    {
+      "linkedId": "45d6c333-0cd8-4a86-a38c-9520b4e8ba91",
+      "mitigationId": "d7e5bb90-26b7-4609-9747-b65dd8f66905"
+    },
+    {
+      "linkedId": "7b9e6a19-2d8b-4990-a47b-36df40a7ebf0",
+      "mitigationId": "6fa97b6e-53b3-481c-9a45-0efde30abcee"
+    },
+    {
+      "linkedId": "e5d65b4c-7834-4db7-b0fe-84cc7e2d4f4c",
+      "mitigationId": "d02435e4-bdb9-4594-a6e8-e3417e03df24"
+    }
+  ],
+  "threats": [
+    {
+      "id": "e5d65b4c-7834-4db7-b0fe-84cc7e2d4f4c",
+      "numericId": 17,
+      "displayOrder": 17,
+      "status": "threatResolved",
+      "statement": "An external threat actor with ability to preform man-in-the-middle attack can strip the SSL/TLS from a victims connection, which leads to web server serving insecure HTTP connection, resulting in reduced confidentiality and/or integrity of Session information",
+      "threatSource": "external threat actor",
+      "prerequisites": "with ability to preform man-in-the-middle attack",
+      "threatAction": "strip the SSL/TLS from a victims connection",
+      "threatImpact": "web server serving insecure HTTP connection",
+      "impactedGoal": [
+        "confidentiality",
+        "integrity"
+      ],
+      "impactedAssets": [
+        "Session information"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:H/A:N\n\n8.1 high"
+        },
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "T",
+            "I"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b9e6a19-2d8b-4990-a47b-36df40a7ebf0",
+      "numericId": 16,
+      "displayOrder": 16,
+      "status": "threatResolved",
+      "statement": "A threat actor with access to a doctors account can edit a doctors profile information to include a malicous script, which leads to the threat actor compromising the browser session of a patient who visits the profile, resulting in reduced confidentiality and/or integrity of Web application, Doctor Database and HNetConnect",
+      "threatSource": "threat actor",
+      "prerequisites": "with access to a doctors account",
+      "threatAction": "edit a doctors profile information to include a malicous script",
+      "threatImpact": "the threat actor compromising the browser session of a patient who visits the profile",
+      "impactedGoal": [
+        "confidentiality",
+        "integrity"
+      ],
+      "impactedAssets": [
+        "Web application",
+        "Doctor Database",
+        "HNetConnect"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:N\n\n\n\n8.2"
+        },
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "T",
+            "S"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "45d6c333-0cd8-4a86-a38c-9520b4e8ba91",
+      "numericId": 15,
+      "displayOrder": 15,
+      "status": "threatResolved",
+      "statement": "An external threat actor who has access to the HealthNetwork web application authentication screen can use SQL injection techniques to bypass authentication, which leads to the attacker having more knowledge about authentication database and access to user account, resulting in reduced confidentiality and/or integrity",
+      "threatSource": "external threat actor",
+      "prerequisites": "who has access to the HealthNetwork web application authentication screen",
+      "threatAction": "use SQL injection techniques to bypass authentication",
+      "threatImpact": "the attacker having more knowledge about authentication database and access to user account",
+      "impactedGoal": [
+        "confidentiality",
+        "integrity"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "T1190 Exploit Public-Facing Application\n\nCVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H 10"
+        },
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "I",
+            "D",
+            "E",
+            "T"
+          ]
+        }
+      ],
+      "tags": [
+        " ID: T1190",
+        "SQL Injection ",
+        "Authentication"
+      ]
+    },
+    {
+      "id": "5f5098a8-317a-487e-a0e6-f70ed65021e6",
+      "numericId": 14,
+      "displayOrder": 14,
+      "status": "threatResolved",
+      "statement": "An external threat actor who has ability to modify authentication tokens can can operate under differnt users, which leads to threat actor evading security and impersonating user, resulting in reduced integrity, confidentiality and/or availability of HNetPay, HNetConnect, HNetExchange and Authentication Process",
+      "threatSource": "external threat actor",
+      "prerequisites": "who has ability to modify authentication tokens",
+      "threatAction": "can operate under differnt users",
+      "threatImpact": "threat actor evading security and impersonating user",
+      "impactedGoal": [
+        "integrity",
+        "confidentiality",
+        "availability"
+      ],
+      "impactedAssets": [
+        "HNetPay",
+        "HNetConnect",
+        "HNetExchange",
+        "Authentication Process"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:L/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H\n\n\n6.7 Medium"
+        },
+        {
+          "key": "Priority",
+          "value": "Medium"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "T",
+            "I",
+            "E"
+          ]
+        }
+      ],
+      "tags": [
+        " ID: T1134",
+        "Token Manipulation"
+      ]
+    },
+    {
+      "id": "15255b06-acaa-4cf9-a32a-32f39e2ad7e9",
+      "numericId": 13,
+      "displayOrder": 13,
+      "status": "threatResolved",
+      "statement": "An external threat actor with access to hardware supply chain assets can modify hardware and firmware, which leads to the threat actor installing backdoor into development devices, resulting in reduced integrity and/or confidentiality of Developer accounts",
+      "threatSource": "external threat actor",
+      "prerequisites": "with access to hardware supply chain assets",
+      "threatAction": "modify hardware and firmware",
+      "threatImpact": "the threat actor installing backdoor into development devices",
+      "impactedAssets": [
+        "Developer accounts"
+      ],
+      "impactedGoal": [
+        "integrity",
+        "confidentiality"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "# Supply Chain Compromise: Compromise Hardware Supply Chain\n\nCVSS:3.1/AV:P/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H\n\n7.3"
+        },
+        {
+          "key": "Priority",
+          "value": "Medium"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "T",
+            "I"
+          ]
+        }
+      ],
+      "tags": [
+        "T1195.003 ",
+        "Supply Chain Compromise"
+      ]
+    },
+    {
+      "id": "0cc0d1c9-79ae-45bf-b141-6499c2e019c1",
+      "numericId": 12,
+      "displayOrder": 12,
+      "status": "threatIdentified",
+      "statement": "A threat actor With access to development enviorment can deface company websites, which leads to web applications not being available, resulting in reduced confidentiality, integrity and/or availability of Web application, Web portal, HNetPay, HNetConnect and HNetExchange",
+      "threatSource": "threat actor",
+      "prerequisites": "With access to development enviorment",
+      "threatAction": "deface company websites",
+      "threatImpact": "web applications not being available",
+      "impactedGoal": [
+        "confidentiality",
+        "integrity",
+        "availability"
+      ],
+      "impactedAssets": [
+        "Web application",
+        "Web portal",
+        "HNetPay",
+        "HNetConnect",
+        "HNetExchange"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "Defacement: External Defacement\n\n\n\n#\n\n\n\nCVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:L\n\n7.5"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "T",
+            "D"
+          ]
+        },
+        {
+          "key": "Priority",
+          "value": "High"
+        }
+      ],
+      "tags": [
+        "T1491.002 ",
+        "Defacement"
+      ]
+    },
+    {
+      "id": "1b759adf-4326-4a5e-b88d-05f6e88c4b5a",
+      "numericId": 11,
+      "displayOrder": 11,
+      "status": "threatIdentified",
+      "statement": "A threat actor with access to a database can manipulate data, which leads to customers not having accurate data to make decisions on, resulting in reduced integrity and/or confidentiality of Doctor Database, Web application and customer database",
+      "threatSource": "threat actor",
+      "prerequisites": "with access to a database",
+      "threatAction": "manipulate data",
+      "threatImpact": "customers not having accurate data to make decisions on",
+      "impactedGoal": [
+        "integrity",
+        "confidentiality"
+      ],
+      "impactedAssets": [
+        "Doctor Database",
+        "Web application",
+        "customer database"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:N/I:H/A:N"
+        },
+        {
+          "key": "Priority",
+          "value": "Medium"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "T",
+            "I"
+          ]
+        }
+      ],
+      "tags": [
+        " T1565 ",
+        "Data Manipulation"
+      ]
+    },
+    {
+      "id": "5c74c1ed-bc79-4ad3-95a3-2a183e321de8",
+      "numericId": 10,
+      "threatSource": "threat actor",
+      "prerequisites": "who has access to account which can create backups of cloud enviorment",
+      "threatAction": "exfiltrate cloud data through exfiltrating data to non-disclosed cloud backup",
+      "threatImpact": "exfiltration of company information, or customer health data",
+      "impactedGoal": [
+        "integrity",
+        "confidentiality"
+      ],
+      "impactedAssets": [
+        "customer database",
+        "doctor database",
+        "cloud enviorment"
+      ],
+      "metadata": [
+        {
+          "key": "Priority",
+          "value": "Medium"
+        },
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:N/A:N"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "I",
+            "T"
+          ]
+        }
+      ],
+      "displayOrder": 10,
+      "status": "threatResolved",
+      "tags": [],
+      "statement": "A threat actor who has access to account which can create backups of cloud enviorment can exfiltrate cloud data through exfiltrating data to non-disclosed cloud backup, which leads to exfiltration of company information, or customer health data, resulting in reduced integrity and/or confidentiality of customer database, doctor database and cloud enviorment"
+    },
+    {
+      "id": "89b70891-fbfb-4f9e-8648-0f41d0f025a0",
+      "numericId": 9,
+      "displayOrder": 9,
+      "status": "threatIdentified",
+      "statement": "An external threat actor already has access to an account within the enviorment can can use internal account to engage in internal spearfishing, which leads to lateral movement, resulting in reduced integrity and/or confidentiality of Web application and Developer accounts",
+      "threatSource": "external threat actor",
+      "prerequisites": "already has access to an account within the enviorment",
+      "threatAction": "can use internal account to engage in internal spearfishing",
+      "threatImpact": "lateral movement",
+      "impactedGoal": [
+        "integrity",
+        "confidentiality"
+      ],
+      "impactedAssets": [
+        "Web application",
+        "Developer accounts"
+      ],
+      "metadata": [
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:A/AC:L/PR:L/UI:R/S:C/C:H/I:H/A:H"
+        },
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "E"
+          ]
+        }
+      ],
+      "tags": [
+        "Spearphishing"
+      ]
+    },
+    {
+      "id": "decdfac9-fa2c-48c3-adb1-13947078f933",
+      "numericId": 8,
+      "displayOrder": 8,
+      "status": "threatIdentified",
+      "statement": "An external threat actor who has access to the cloud environment with vast permissions can use the AWS command sts:GetFederationToken to create temporary credentials, which leads to attacker maintaining persistence on cloud environment, resulting in reduced integrity and/or confidentiality of internal databases and systems, HNetPay, HNetExchange and HNetConnect",
+      "threatSource": "external threat actor",
+      "prerequisites": "who has access to the cloud environment with vast permissions",
+      "threatAction": "use the AWS command sts:GetFederationToken to create temporary credentials",
+      "threatImpact": "attacker maintaining persistence on cloud environment",
+      "impactedGoal": [
+        "integrity",
+        "confidentiality"
+      ],
+      "impactedAssets": [
+        "internal databases and systems",
+        "HNetPay",
+        "HNetExchange",
+        "HNetConnect"
+      ],
+      "metadata": [
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H\n\n8.8"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "T"
+          ]
+        }
+      ],
+      "tags": [
+        "Cloud credential persistance"
+      ]
+    },
+    {
+      "id": "3e919c54-afd7-44fb-b055-36e61206958e",
+      "numericId": 7,
+      "displayOrder": 7,
+      "status": "threatIdentified",
+      "statement": "An external threat actor with ability to preform an SYN flood attack can flood the web application with SYN requests, which leads to web application services being down, resulting in reduced availability of HNetPay, HNetExchange, HNetConnect, internal databases and systems and customer data and web application",
+      "threatSource": "external threat actor",
+      "prerequisites": "with ability to preform a SYN flood attack",
+      "threatAction": "flood the web application with SYN requests",
+      "threatImpact": "web application services being down",
+      "impactedGoal": [
+        "availability"
+      ],
+      "impactedAssets": [
+        "HNetPay",
+        "HNetExchange",
+        "HNetConnect",
+        "internal databases and systems",
+        "customer data and web application"
+      ],
+      "metadata": [
+        {
+          "key": "Priority",
+          "value": "Medium"
+        },
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:H\n\nCVSS Base Score:\n\n7.5"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "D"
+          ]
+        }
+      ],
+      "tags": [
+        "DOS SYN FLood"
+      ]
+    },
+    {
+      "id": "95275d76-38f3-4e6b-9e0a-dd4ea887b2aa",
+      "numericId": 6,
+      "displayOrder": 6,
+      "status": "threatIdentified",
+      "statement": "An external threat actor with access to a browser running the HNetConnect Web Portal can discover the cloud services running on the server, which leads to attackers using information gained to shape attack behaviors, resulting in reduced confidentiality, availability and/or integrity of HNetConnect, HNetPay, HNetExchange, Databases and Web portal",
+      "threatSource": "external threat actor",
+      "prerequisites": "with access to a browser running the HNetConnect Web Portal",
+      "threatAction": "discover the cloud services running on the server",
+      "threatImpact": "attackers using information gained to shape attack behaviors",
+      "impactedGoal": [
+        "confidentiality",
+        "availability",
+        "integrity"
+      ],
+      "impactedAssets": [
+        "HNetConnect",
+        "HNetPay",
+        "HNetExchange",
+        "Databases",
+        "Web portal"
+      ],
+      "metadata": [
+        {
+          "key": "STRIDE",
+          "value": [
+            "I"
+          ]
+        },
+        {
+          "key": "Priority",
+          "value": "Low"
+        },
+        {
+          "key": "Comments",
+          "value": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:L/I:N/A:N\n\n2.9"
+        }
+      ],
+      "tags": [
+        "reconnaissance",
+        "Cloud Service"
+      ]
+    },
+    {
+      "id": "886f05f9-aaef-4add-89a2-c7053302573d",
+      "numericId": 5,
+      "displayOrder": 5,
+      "status": "threatIdentified",
+      "statement": "An external threat actor intercepts multi factor authentication can use MFA to gain access to used systems on account, which leads to actor being able to view user information and database access associated with user, resulting in reduced availability, confidentiality and/or integrity of customer data and web application and Databases",
+      "threatSource": "external threat actor",
+      "prerequisites": "intercepts multi factor authentication",
+      "impactedGoal": [
+        "availability",
+        "confidentiality",
+        "integrity"
+      ],
+      "impactedAssets": [
+        "customer data and web application",
+        "Databases"
+      ],
+      "threatAction": "use MFA to gain access to used systems on account",
+      "threatImpact": "actor being able to view user information and database access associated with user",
+      "metadata": [
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "T",
+            "I"
+          ]
+        },
+        {
+          "key": "Comments",
+          "value": "AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H\n\nCVSS: 8.8"
+        }
+      ],
+      "tags": [
+        "Interception",
+        "MFA"
+      ]
+    },
+    {
+      "id": "04212a0d-86c6-414d-9501-ac90f06f81fa",
+      "numericId": 4,
+      "displayOrder": 4,
+      "status": "threatResolvedNotUseful",
+      "statement": "An internal actor part of the Health Network team gains access to physical data center can destroy server racks or attempt to steal data, which leads to stolen information or damaged infrastructure equipment, resulting in reduced availability, integrity and/or confidentiality of customer data and web application",
+      "threatSource": "internal actor",
+      "prerequisites": "part of the Health Network team gains access to physical data center",
+      "threatAction": "destroy server racks or attempt to steal data",
+      "threatImpact": "stolen information or damaged infrastructure equipment",
+      "impactedGoal": [
+        "availability",
+        "integrity",
+        "confidentiality"
+      ],
+      "impactedAssets": [
+        "customer data and web application"
+      ],
+      "metadata": [
+        {
+          "key": "Priority",
+          "value": "Low"
+        },
+        {
+          "key": "Comments",
+          "value": "Since the system is moving to a cloud based environment this threat is not applicable to health network"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "T",
+            "D",
+            "I"
+          ]
+        }
+      ],
+      "tags": [
+        "Physical"
+      ]
+    },
+    {
+      "id": "d5fc90a0-9250-4be4-92c0-2c54bbc66ff7",
+      "numericId": 3,
+      "displayOrder": 3,
+      "status": "threatResolved",
+      "statement": "An external threat actor with ability to intercept packets on a network can steal session cookies from a user's browser, which leads to unauthorized access to account, resulting in reduced confidentiality and/or integrity of User Account",
+      "threatSource": "external threat actor",
+      "prerequisites": "with ability to intercept packets on a network",
+      "threatAction": "steal session cookies from a user's browser",
+      "threatImpact": "unauthorized access to account",
+      "impactedGoal": [
+        "confidentiality",
+        "integrity"
+      ],
+      "impactedAssets": [
+        "User Account"
+      ],
+      "metadata": [
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "Comments",
+          "value": "Attack Vector (AV): Network (N)\n\nAttack Complexity (AC): Low (L)\n\nPrivileges Required (PR): None (N)\n\nUser Interaction (UI): Required (R)\n\nScope (S): Unchanged (U)\n\nConfidentiality (C): High (H)\n\nIntegrity (I): High (H)\n\nAvailability (A): None (N)\n\nCVSS Base Score:\n\n8.1\n\nImpact Subscore:\n\n5.2\n\nExploitability Subscore:\n\n2.8"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "T"
+          ]
+        }
+      ],
+      "tags": [
+        "Browser cookies",
+        "Interception"
+      ]
+    },
+    {
+      "id": "59f227dc-1ba0-492e-a0df-3945c96e3cf4",
+      "numericId": 2,
+      "displayOrder": 2,
+      "status": "threatIdentified",
+      "statement": "An external threat actor can send a fraudulent email that can trick an employee into revealing their credentials and MFA token, which leads to attacker gaining access to coporate network, resulting in reduced confidentiality, integrity and/or availability of internal databases and systems",
+      "threatSource": "external threat actor",
+      "prerequisites": "can send a fraudulent email that",
+      "threatAction": "trick an employee into revealing their credentials and MFA token",
+      "threatImpact": "attacker gaining access to coporate network",
+      "impactedAssets": [
+        "internal databases and systems"
+      ],
+      "impactedGoal": [
+        "confidentiality",
+        "integrity",
+        "availability"
+      ],
+      "metadata": [
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "I",
+            "E"
+          ]
+        },
+        {
+          "key": "Priority",
+          "value": "High"
+        },
+        {
+          "key": "Comments",
+          "value": "Attack vector: Network\n\nAttack Complexity: Low (L)\n\nPrivileges Required(PR): None (N)\n\nUser Interaction (UI)**:** Required (R)\n\nConfidentiality (C)**:** High (H)\n\nIntegrity (I): High (H)\n\nAvailability (A): High (H)\n\nCVSS Base Score: 9.6"
+        }
+      ],
+      "tags": [
+        "Phishing ",
+        "MFA"
+      ]
+    },
+    {
+      "id": "6836e996-29b9-4819-8cb2-1deb5988a067",
+      "numericId": 1,
+      "displayOrder": 1,
+      "metadata": [
+        {
+          "key": "Priority",
+          "value": "Medium"
+        },
+        {
+          "key": "STRIDE",
+          "value": [
+            "S",
+            "T"
+          ]
+        }
+      ],
+      "tags": [
+        "HNetConnect",
+        "Authentication",
+        "Stolen Credentials",
+        "T1552",
+        "Tampering"
+      ],
+      "threatSource": "threat actor",
+      "prerequisites": "with stolen doctor credentials",
+      "threatAction": "gain access to web portal with stolen credintials",
+      "threatImpact": "them performing actions they should not be authorized to perform",
+      "impactedGoal": [
+        "integrity",
+        "availability"
+      ],
+      "impactedAssets": [
+        "Doctor Database",
+        "HNetConnect"
+      ],
+      "statement": "A threat actor with stolen doctor credentials can gain access to web portal with stolen credintials, which leads to them performing actions they should not be authorized to perform, resulting in reduced integrity and/or availability of Doctor Database and HNetConnect",
+      "status": "threatResolved"
+    }
+  ]
+}
